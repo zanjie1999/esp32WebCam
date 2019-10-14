@@ -551,12 +551,7 @@ static esp_err_t cmd_handler(httpd_req_t *req){
     else if(!strcmp(variable, "flash")) {
 #define LED_BUILTIN 4
         pinMode(LED_BUILTIN, OUTPUT);
-        // digitalWrite(LED_BUILTIN, flash_enabled = atoi(value));
-        if (atoi(value)) {
-            analogWrite(LED_BUILTIN, 128);
-        } else {
-            digitalWrite(LED_BUILTIN, 0);
-        }
+        digitalWrite(LED_BUILTIN, flash_enabled = atoi(value));
     }
     else if(!strcmp(variable, "ges")) {
         ges = atoi(value);
