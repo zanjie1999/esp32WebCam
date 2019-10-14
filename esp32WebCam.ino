@@ -1,4 +1,5 @@
 #include "esp_camera.h"
+#include "wificonf.h"
 #include <WiFi.h>
 #include <WiFiMulti.h>
 
@@ -87,7 +88,9 @@ void setup() {
   s->set_hmirror(s, 1);
 #endif
 
-  wifiMulti.addAP("ap", "pwd");
+  for (int i=0;i < wifiConfNum;i++) {
+      wifiMulti.addAP(wifiConf[i][0], wifiConf[i][1]);
+  }
 
   Serial.println("Connecting Wifi...");
   while (wifiMulti.run() != WL_CONNECTED) {
