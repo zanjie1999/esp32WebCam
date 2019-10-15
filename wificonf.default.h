@@ -2,4 +2,4 @@
 int wifiConfNum = 1;
 char* wifiConf[][2] = {
     {"ssid","password"}
-}
+};
